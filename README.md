@@ -129,6 +129,30 @@ Rao-HTML-to-xhs/
 | **data-role 叙事弧线** | nexu-io `data-title` 命名页 | cover/conclusion/.../cta 9 角色显性化 |
 | **md 双层设计** | nexu-io `example.md + example.html` | 用户改 md,AI 套 HTML,工作量降 80% |
 
+## v2.1 升级要点(2026-05-17)
+
+借鉴 [enhen3/xhs-cards](https://github.com/enhen3/xhs-cards)、[zabr1314/xhs-card-generator](https://github.com/zabr1314/xhs-card-generator) 等 GitHub 同类 skill 的 5 个设计:
+
+| 改动 | 借鉴自 | 解决什么 |
+|---|---|---|
+| **字数硬约束** | enhen3 ≤ 1000 字 CRITICAL CONSTRAINT | 总 ≤ 1000 + 每页字数上限,避免"PPT 化" |
+| **--page N 单页重导出** | enhen3 `export_single.cjs` | 改一句话不用重渲 9 张 |
+| **不用 emoji + 5 替代** | zabr1314 "Claude 风格" | 强化"安静的深度"调性 |
+| **AI 插画规范(可选)** | enhen3 editorial style prefix | 给第 2/3 层选题加视觉锚 |
+| **组件库文档化** | enhen3 Component Library | 现有组件清单 + roadmap |
+
+详见 [references/视觉规范.md](references/视觉规范.md) 第 11-14 节。
+
+### render.js 新用法
+
+```bash
+node render.js                     # 全部 9 张
+node render.js --page 5            # 只重渲染第 5 张
+node render.js --page 1,7,9        # 选择性多页(三张大字页)
+node render.js -i <html> -o <dir>  # 自定义路径
+node render.js --help              # 显示完整帮助
+```
+
 ---
 
 ## 相关 Skill(Rao 系列)
