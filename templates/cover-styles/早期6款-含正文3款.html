@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>饶秋·小红书封面与正文风格对比</title>
+<style>
+  :root {
+    --ink-1: #15263D;
+    --ink-2: #243A56;
+    --ink-3: #3A5174;
+    --paper: #FBFBFD;
+    --snow: #F4F5F7;
+    --black: #0F1419;
+    --jet: #050505;
+    --gray: #6E7280;
+    --gray-soft: #A8B0BC;
+    --gray-bg: #EFF1F4;
+    --orange: #E58E45;
+    --tangerine: #FF7A2A;
+    --yellow: #FFE45E;
+    --gold: #C4A35A;
+    --gold-soft: #E0C998;
+    --brick: #B85850;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: #1E1E1E;
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  /* ============== 页面骨架 ============== */
+  header.page-head {
+    text-align: center;
+    padding: 50px 20px 10px;
+    border-bottom: 1px solid #333;
+  }
+  header.page-head h1 {
+    font-size: 28px;
+    margin: 0 0 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+  header.page-head p {
+    color: var(--gray-soft);
+    font-size: 14px;
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+  section {
+    padding: 60px 30px;
+    border-bottom: 1px solid #333;
+  }
+  section h2.section-title {
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    margin: 0 0 8px;
+    letter-spacing: 4px;
+    font-weight: 500;
+  }
+  section h2.section-title small {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-soft);
+    letter-spacing: 2px;
+    font-weight: 300;
+  }
+
+  .grid {
+    display: grid;
+    gap: 70px 50px;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .grid-2 { grid-template-columns: repeat(2, auto); }
+  .grid-3 { grid-template-columns: repeat(3, auto); }
+
+  .option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .option .meta {
+    width: 522px;
+    margin-bottom: 16px;
+  }
+  .option .meta .lbl {
+    font-size: 12px;
+    color: var(--gray-soft);
+    letter-spacing: 6px;
+  }
+  .option .meta h3 {
+    font-size: 22px;
+    margin: 6px 0 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .option .meta .tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .option .meta .tag {
+    font-size: 11px;
+    background: #2D2D2D;
+    color: var(--gray-soft);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+  }
+  .option .meta .tag.fit { color: var(--orange); border: 1px solid #4A3525; }
+  .option .meta .desc {
+    font-size: 13px;
+    color: #B8B8B8;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* ============== slide wrapper ============== */
+  .slide-wrap {
+    width: 522px;
+    height: 696px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+    background: white;
+    position: relative;
+  }
+  .slide-wrap.s-narrow {
+    width: 396px;
+    height: 528px;
+  }
+  .slide {
+    width: 1242px;
+    height: 1656px;
+    transform: scale(0.42);
+    transform-origin: top left;
+    position: relative;
+  }
+  .s-narrow .slide {
+    transform: scale(0.319);
+  }
+
+
+  /* ====================================================================
+   * 封面 A · 字体暴力型(全墨蓝底 + 巨型白字)
+   * ==================================================================== */
+  .cover-a {
+    background: var(--ink-1);
+    color: #fff;
+    padding: 110px 90px 90px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-a .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray-soft);
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 90px;
+  }
+  .cover-a .head .dot { color: var(--orange); }
+  .cover-a .pre {
+    font-size: 64px;
+    color: var(--gray-soft);
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  .cover-a .big {
+    font-size: 220px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -8px;
+    color: #fff;
+  }
+  .cover-a .big .hi {
+    color: var(--orange);
+    display: block;
+  }
+  .cover-a .rule {
+    width: 200px; height: 8px;
+    background: var(--orange);
+    margin: 80px 0 40px;
+  }
+  .cover-a .sub {
+    font-size: 44px;
+    color: var(--gray-soft);
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+  .cover-a .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: var(--gray-soft);
+    font-size: 30px;
+    letter-spacing: 4px;
+  }
+  .cover-a .footer .arr { color: var(--orange); font-size: 50px; font-weight: 700; }
+
+
+  /* ====================================================================
+   * 封面 B · 反差对比型(双色块) — 已有 v2
+   * ==================================================================== */
+  .cover-b {
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-b .top-tag {
+    padding: 110px 100px 30px;
+    color: var(--gray);
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+  .cover-b .pre {
+    padding: 0 100px 30px;
+    font-size: 64px;
+    color: var(--black);
+    font-weight: 600;
+  }
+  .cover-b .split {
+    flex: 1;
+    margin: 20px 80px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .cover-b .split > div {
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+  }
+  .cover-b .split .left { background: var(--brick); color: #fff; }
+  .cover-b .split .right { background: var(--ink-1); color: #fff; }
+  .cover-b .split .tag {
+    font-size: 36px;
+    letter-spacing: 6px;
+    opacity: 0.85;
+    margin-bottom: 50px;
+    font-weight: 300;
+  }
+  .cover-b .split .big {
+    font-size: 220px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -6px;
+  }
+  .cover-b .arrow-line {
+    padding: 0 100px 40px;
+    color: var(--orange);
+    font-size: 50px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  .cover-b .arrow-line::before {
+    content: ""; display: inline-block;
+    width: 8px; height: 50px; background: var(--orange);
+    margin-right: 24px;
+  }
+  .cover-b .footer {
+    padding: 0 100px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: var(--gray);
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+  .cover-b .footer .brand { color: var(--ink-1); font-weight: 700; letter-spacing: 4px; }
+
+
+  /* ====================================================================
+   * 封面 C · 杂志衬线型(白底 + 米金细节 + 衬线大字)
+   * ==================================================================== */
+  .cover-c {
+    background: var(--paper);
+    color: var(--black);
+    padding: 130px 110px 110px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", serif;
+  }
+  .cover-c .head {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    color: var(--gold);
+    font-size: 36px;
+    letter-spacing: 6px;
+    margin-bottom: 80px;
+  }
+  .cover-c .head .vol {
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  .cover-c .head .line {
+    flex: 1; height: 2px;
+    background: var(--gold);
+  }
+  .cover-c .big {
+    font-size: 152px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 4px;
+    color: var(--ink-1);
+  }
+  .cover-c .big .em {
+    color: var(--brick);
+  }
+  .cover-c .big .pause {
+    display: inline-block;
+    width: 0.5em;
+  }
+  .cover-c .gap { flex: 1; min-height: 60px; }
+  .cover-c .footer {
+    border-top: 2px solid var(--gold);
+    padding-top: 30px;
+    color: var(--gray);
+    font-size: 32px;
+    letter-spacing: 4px;
+    line-height: 1.6;
+  }
+  .cover-c .footer .author {
+    color: var(--ink-1);
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+
+  /* ====================================================================
+   * 封面 D · 资源清单型(FILE 标签 + 9 项预告)
+   * ==================================================================== */
+  .cover-d {
+    background: var(--paper);
+    padding: 100px 90px 100px;
+    display: flex;
+    flex-direction: column;
+    color: var(--black);
+  }
+  .cover-d .file-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--ink-1);
+    color: #fff;
+    padding: 14px 28px;
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 32px;
+    letter-spacing: 4px;
+    align-self: flex-start;
+    margin-bottom: 50px;
+  }
+  .cover-d .file-tag .num {
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .cover-d h1 {
+    font-size: 100px;
+    line-height: 1.15;
+    margin: 0 0 40px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--black);
+  }
+  .cover-d h1 .hi {
+    color: var(--ink-1);
+    background: var(--yellow);
+    padding: 0 12px;
+  }
+  .cover-d .total {
+    font-size: 110px;
+    color: var(--ink-1);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 50px;
+  }
+  .cover-d .total .num {
+    color: var(--orange);
+    font-size: 180px;
+    margin-right: 16px;
+  }
+  .cover-d .list {
+    border-top: 4px solid var(--ink-1);
+    padding-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cover-d .list .item {
+    display: flex;
+    gap: 24px;
+    font-size: 36px;
+    color: var(--black);
+    align-items: center;
+    line-height: 1.4;
+  }
+  .cover-d .list .item .n {
+    font-family: "SF Mono", "Menlo", monospace;
+    color: var(--orange);
+    font-weight: 700;
+    width: 60px;
+  }
+  .cover-d .list .item .arr { color: var(--gray-soft); }
+  .cover-d .footer {
+    margin-top: auto;
+    padding-top: 28px;
+    color: var(--gray);
+    font-size: 30px;
+    letter-spacing: 4px;
+    text-align: right;
+  }
+
+
+  /* ====================================================================
+   * 封面 E · 黑金高级型
+   * ==================================================================== */
+  .cover-e {
+    background: var(--jet);
+    color: #fff;
+    padding: 130px 100px 110px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cover-e .deco {
+    color: var(--gold);
+    font-size: 60px;
+    margin-bottom: 60px;
+    letter-spacing: 30px;
+    padding-left: 30px;
+  }
+  .cover-e .pre {
+    font-size: 48px;
+    color: var(--gold-soft);
+    letter-spacing: 8px;
+    margin-bottom: 80px;
+    font-weight: 300;
+  }
+  .cover-e .big {
+    font-size: 220px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -8px;
+    color: #fff;
+    margin-bottom: 60px;
+  }
+  .cover-e .line {
+    width: 240px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 50px;
+  }
+  .cover-e .answer {
+    font-size: 60px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 8px;
+    line-height: 1.4;
+    font-family: "Source Han Serif SC", "Noto Serif SC", serif;
+  }
+  .cover-e .footer {
+    margin-top: auto;
+    padding-top: 60px;
+    color: var(--gold);
+    font-size: 32px;
+    letter-spacing: 16px;
+  }
+
+
+  /* ====================================================================
+   * 封面 F · 撞色活泼型(大色块 + 高亮)
+   * ==================================================================== */
+  .cover-f {
+    background: var(--paper);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .cover-f .top-bar {
+    background: var(--ink-1);
+    color: #fff;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
+  .cover-f .top-bar .brand {
+    background: var(--orange);
+    color: var(--ink-1);
+    padding: 10px 22px;
+    font-weight: 800;
+    border-radius: 6px;
+    letter-spacing: 2px;
+  }
+  .cover-f .body {
+    padding: 60px 80px 80px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-f .pre {
+    font-size: 56px;
+    color: var(--gray);
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  .cover-f .megablock {
+    background: var(--orange);
+    border-radius: 32px;
+    padding: 80px 60px;
+    text-align: center;
+    box-shadow: 12px 12px 0 0 var(--ink-1);
+    margin-bottom: 60px;
+  }
+  .cover-f .megablock .text {
+    font-size: 200px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--ink-1);
+    letter-spacing: -4px;
+  }
+  .cover-f .megablock .text .small {
+    font-size: 80px;
+    display: block;
+    margin-top: 24px;
+    letter-spacing: 6px;
+  }
+  .cover-f .highlight {
+    display: inline-block;
+    background: var(--yellow);
+    padding: 6px 18px;
+    font-weight: 800;
+    color: var(--black);
+  }
+  .cover-f .question {
+    font-size: 56px;
+    line-height: 1.5;
+    color: var(--black);
+    font-weight: 700;
+    margin-bottom: auto;
+  }
+  .cover-f .question .em {
+    color: var(--brick);
+  }
+  .cover-f .footer {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 4px solid var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--black);
+    font-size: 32px;
+    font-weight: 600;
+  }
+  .cover-f .footer .arr-big {
+    background: var(--ink-1);
+    color: var(--orange);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 800;
+  }
+
+
+  /* ====================================================================
+   * 正文 G · 标准蓝带白底(已采用)
+   * ==================================================================== */
+  .body-g {
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+  }
+  .body-g .top {
+    height: 180px;
+    background: var(--ink-1);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+  }
+  .body-g .top .num { font-size: 32px; letter-spacing: 4px; font-weight: 600; }
+  .body-g .top .chapter { font-size: 32px; letter-spacing: 4px; color: var(--gray-soft); }
+  .body-g .body {
+    flex: 1;
+    padding: 100px 100px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  .body-g .lead { color: var(--gray); font-size: 38px; margin-bottom: 24px; letter-spacing: 2px; }
+  .body-g h1 {
+    font-size: 96px; font-weight: 900; line-height: 1.15;
+    margin: 0 0 60px; letter-spacing: -2px; color: var(--black);
+  }
+  .body-g h1 .hi { color: var(--orange); }
+  .body-g .three { display: flex; flex-direction: column; gap: 36px; }
+  .body-g .three .pt { display: flex; align-items: flex-start; gap: 36px; }
+  .body-g .three .pt .num {
+    flex-shrink: 0; font-size: 96px; font-weight: 900;
+    color: var(--ink-3); line-height: 1; width: 110px;
+  }
+  .body-g .three .pt .text {
+    flex: 1; font-size: 50px; line-height: 1.5;
+    color: var(--black); padding-top: 12px; font-weight: 500;
+  }
+  .body-g .three .pt .text b { color: var(--orange); font-weight: 700; }
+
+
+  /* ====================================================================
+   * 正文 H · 全白极简型(无蓝带,左侧大数字)
+   * ==================================================================== */
+  .body-h {
+    background: #fff;
+    color: var(--black);
+    padding: 110px 90px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .body-h .head {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray-soft);
+    font-size: 30px;
+    letter-spacing: 6px;
+    margin-bottom: 60px;
+    font-family: "SF Mono", "Menlo", monospace;
+  }
+  .body-h .lead { font-size: 44px; color: var(--gray); margin-bottom: 30px; letter-spacing: 2px; }
+  .body-h h1 {
+    font-size: 110px;
+    line-height: 1.1;
+    font-weight: 900;
+    margin: 0 0 80px;
+    letter-spacing: -2px;
+  }
+  .body-h h1 .em {
+    background: var(--yellow);
+    padding: 0 18px;
+    color: var(--black);
+  }
+  .body-h .three {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .body-h .three .pt {
+    border-bottom: 2px solid #E0E0E0;
+    padding-bottom: 30px;
+  }
+  .body-h .three .pt .head-line {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    margin-bottom: 14px;
+  }
+  .body-h .three .pt .num {
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    font-family: "SF Pro Display", -apple-system, sans-serif;
+  }
+  .body-h .three .pt .label {
+    font-size: 28px;
+    color: var(--gray-soft);
+    letter-spacing: 6px;
+    font-weight: 600;
+  }
+  .body-h .three .pt .text {
+    font-size: 48px;
+    color: var(--black);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .body-h .three .pt .text b { color: var(--ink-1); font-weight: 800; }
+
+
+  /* ====================================================================
+   * 正文 I · 全墨蓝深色型(反色,沉静夜读感)
+   * ==================================================================== */
+  .body-i {
+    background: var(--ink-1);
+    color: #fff;
+    padding: 110px 90px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .body-i .head {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray-soft);
+    font-size: 30px;
+    letter-spacing: 6px;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--ink-3);
+  }
+  .body-i .lead { font-size: 42px; color: var(--gold-soft); margin-bottom: 30px; letter-spacing: 4px; }
+  .body-i h1 {
+    font-size: 100px;
+    line-height: 1.15;
+    font-weight: 900;
+    margin: 0 0 80px;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+  .body-i h1 .em { color: var(--gold); }
+  .body-i .three {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .body-i .three .pt {
+    background: rgba(255,255,255,0.05);
+    border-left: 6px solid var(--gold);
+    padding: 36px 44px;
+  }
+  .body-i .three .pt .head-line {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .body-i .three .pt .num {
+    font-size: 60px;
+    font-weight: 900;
+    color: var(--gold);
+    font-family: "SF Pro Display", -apple-system, serif;
+  }
+  .body-i .three .pt .label {
+    color: var(--gold-soft);
+    font-size: 26px;
+    letter-spacing: 4px;
+    font-weight: 600;
+  }
+  .body-i .three .pt .text {
+    font-size: 44px;
+    color: #fff;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .body-i .three .pt .text b { color: var(--gold); font-weight: 700; }
+
+
+  /* ============== footer 总结 ============== */
+  .summary {
+    padding: 60px 30px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .summary h2 {
+    font-size: 22px;
+    margin: 0 0 20px;
+    letter-spacing: 4px;
+  }
+  .summary table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #DDD;
+    font-size: 14px;
+  }
+  .summary th, .summary td {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid #333;
+  }
+  .summary th {
+    background: #2A2A2A;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .summary td.tag {
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .summary td .tip {
+    color: var(--gray-soft);
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>小红书图文 · 风格选择面板</h1>
+  <p>同一选题《AI 给我的第一版总差口气》 · 不同视觉表达 · 选定后再延展整套图文</p>
+</header>
+
+<!-- ============================================================== -->
+<!--                    第一组:封面 6 种                            -->
+<!-- ============================================================== -->
+<section>
+  <h2 class="section-title">
+    第一组 · 封面 6 种风格
+    <small>左右对比看气质,横向选一款</small>
+  </h2>
+
+  <div class="grid grid-2">
+
+    <!-- A 字体暴力 -->
+    <div class="option">
+      <div class="meta">
+        <span class="lbl">A · COVER</span>
+        <h3>字体暴力 · 高级安静</h3>
+        <div class="tags">
+          <span class="tag">墨蓝底 #15263D</span>
+          <span class="tag">白字 220px</span>
+          <span class="tag fit">▶ 第一层 实操</span>
+          <span class="tag fit">▶ 第二层 判断</span>
+        </div>
+        <p class="desc">最像饶秋公众号 v10-D 的延续。冷静、克制、有力,放在 feed 流里像一块墨色印章——不抢眼,但耐看。</p>
+      </div>
+      <div class="slide-wrap"><div class="slide cover-a">
+        <div class="head">
+          <span>饶秋·1023 · No.19</span>
+          <span><span class="dot">●</span> AI 实战</span>
+        </div>
+        <div class="pre">AI 给我的</div>
+        <div class="big">
+          第 一 版,<br>
+          <span class="hi">差 口 气。</span>
+        </div>
+        <div class="rule"></div>
+        <div class="sub">真问题不在 prompt</div>
+        <div class="footer">
+          <span>5000+ 学员卡在同一处</span>
+          <span class="arr">▶</span>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- B 反差对比 -->
+    <div class="option">
+      <div class="meta">
+        <span class="lbl">B · COVER</span>
+        <h3>反差对比 · 戏剧冲突</h3>
+        <div class="tags">
+          <span class="tag">左红右蓝</span>
+          <span class="tag">双色块</span>
+          <span class="tag fit">▶ 第二层 判断</span>
+          <span class="tag fit">▶ 改前 vs 改后</span>
+        </div>
+        <p class="desc">视觉冲突最强,看一眼就知道"这一篇有对比"。但每篇都用,信息会被冲淡——适合"判断 / 取舍 / 对比"主题专属。</p>
+      </div>
+      <div class="slide-wrap"><div class="slide cover-b">
+        <div class="top-tag">饶秋1023 · 第 19 期</div>
+        <div class="pre">AI 给我的第一版,</div>
+        <div class="split">
+          <div class="left">
+            <div class="tag">默认 prompt</div>
+            <div class="big">差<br>口气</div>
+          </div>
+          <div class="right">
+            <div class="tag">改完之后</div>
+            <div class="big">能<br>过会</div>
+          </div>
+        </div>
+        <div class="arrow-line">关键就在这一步 ▶</div>
+        <div class="footer">
+          <span>5000+ 学员卡在同一处</span>
+          <span class="brand">饶秋·1023</span>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- C 杂志衬线 -->
+    <div class="option">
+      <div class="meta">
+        <span class="lbl">C · COVER</span>
+        <h3>杂志衬线 · 文学深度</h3>
+        <div class="tags">
+          <span class="tag">纸白底</span>
+          <span class="tag">衬线 152px</span>
+          <span class="tag">米金细节</span>
+          <span class="tag fit">▶ 第三层 灵魂</span>
+          <span class="tag fit">▶ 思想金句</span>
+        </div>
+        <p class="desc">最贴近饶秋"程前式安静"气质。文学杂志感、留白多。流量未必高,但能筛出一批"看完想了一会儿"的精准粉丝。</p>
+      </div>
+      <div class="slide-wrap"><div class="slide cover-c">
+        <div class="head">
+          <span class="vol">Vol.</span><span>019</span>
+          <span class="line"></span>
+          <span>饶 秋 . 1023</span>
+        </div>
+        <div class="big">
+          当 AI 写出来<br>
+          一股<span class="em"> AI 味,</span><br>
+          <br>
+          真 问 题<br>
+          不 在<span class="pause"></span>提 示 词 。
+        </div>
+        <div class="gap"></div>
+        <div class="footer">
+          <div class="author">— 饶 秋 ·1023</div>
+          一个用 AI 干活的运营总监 · 80+ 场培训 · 5000+ 学员
+        </div>
+      </div></div>
+    </div>
+
+    <!-- D 资源清单 -->
+    <div class="option">
+      <div class="meta">
+        <span class="lbl">D · COVER</span>
+        <h3>资源清单 · 高保存率</h3>
+        <div class="tags">
+          <span class="tag">FILE 标签</span>
+          <span class="tag">9 项预告</span>
+          <span class="tag">黄色高亮</span>
+          <span class="tag fit">▶ 第一层 SOP</span>
+          <span class="tag fit">▶ 提示词卡片</span>
+        </div>
+        <p class="desc">收藏率最高的封面类型。"清单感"+"信息感"双重诱因,读者一看到 9 条就想保存。适合提示词、SOP、工具类选题。</p>
+      </div>
+      <div class="slide-wrap"><div class="slide cover-d">
+        <div class="file-tag">
+          <span>FILE</span><span class="num">#019</span>
+        </div>
+        <h1>AI 输出<br>不像<span class="hi">"你的口吻"</span>?</h1>
+        <div class="total"><span class="num">9</span>件事决定<br>90% 输出质量</div>
+        <div class="list">
+          <div class="item"><span class="n">01</span><span class="arr">▸</span><span>不要让默认 AI 写</span></div>
+          <div class="item"><span class="n">02</span><span class="arr">▸</span><span>让一个具体的人写</span></div>
+          <div class="item"><span class="n">03</span><span class="arr">▸</span><span>装入口吻、读者、目标</span></div>
+          <div class="item"><span class="n">04</span><span class="arr">▸</span><span>分步迭代、不要一次到位</span></div>
+          <div class="item"><span class="n">05</span><span class="arr">▸</span><span>······ 滑下一张</span></div>
+        </div>
+        <div class="footer">长按截图保存 →</div>
+      </div></div>
+    </div>
+
+    <!-- E 黑金高级 -->
+    <div class="option">
+      <div class="meta">
+        <span class="lbl">E · COVER</span>
+        <h3>黑金高级 · 商务严肃</h3>
+        <div class="tags">
+          <span class="tag">纯黑底 #050505</span>
+          <span class="tag">米金 #C4A35A</span>
+          <span class="tag fit">▶ 第二层 总监视角</span>
+          <span class="tag fit">▶ 行业判断</span>
+        </div>
+        <p class="desc">最有"上市公司总监"气质的封面。深色高级感、米金奢华感。适合行业评论、AI 趋势判断、精英向选题。但每篇都用会显得装。</p>
+      </div>
+      <div class="slide-wrap"><div class="slide cover-e">
+        <div class="deco">◆</div>
+        <div class="pre">真 正 卡 住 AI 的</div>
+        <div class="big">不 是<br>提示词。</div>
+        <div class="line"></div>
+        <div class="answer">是 「角 色」<br>没 换 。</div>
+        <div class="footer">R · 1 0 2 3</div>
+      </div></div>
+    </div>
+
+    <!-- F 撞色活泼 -->
+    <div class="option">
+      <div class="meta">
+        <span class="lbl">F · COVER</span>
+        <h3>撞色活泼 · 工具亲和</h3>
+        <div class="tags">
+          <span class="tag">橙 + 蓝 + 黄</span>
+          <span class="tag">大色块</span>
+          <span class="tag fit">▶ 第一层 工具实战</span>
+          <span class="tag fit">▶ 踩坑分享</span>
+        </div>
+        <p class="desc">最有"小红书原生"感的风格。色彩活泼、亲和、像朋友圈截图。适合工具实战、踩坑、轻松分享。但跟饶秋"安静的深度"略有冲突,慎用。</p>
+      </div>
+      <div class="slide-wrap"><div class="slide cover-f">
+        <div class="top-bar">
+          <span>第 19 期 · AI 踩坑</span>
+          <span class="brand">饶秋1023</span>
+        </div>
+        <div class="body">
+          <div class="pre">让 AI 写月度汇报,</div>
+          <div class="megablock">
+            <div class="text">
+              改 了 7 遍
+              <span class="small">还 是 不 像 我 写 的</span>
+            </div>
+          </div>
+          <div class="question">
+            <span class="highlight">⚡ 后来发现</span><br>
+            prompt 没问题,<br>
+            <span class="em">「角色」忘了换。</span>
+          </div>
+          <div class="footer">
+            <span>一个 AI 老用户的真实踩坑</span>
+            <span class="arr-big">滑 ▶</span>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================== -->
+<!--                    第二组:正文图 3 种排版                        -->
+<!-- ============================================================== -->
+<section>
+  <h2 class="section-title">
+    第二组 · 正文图 3 种排版
+    <small>同一内容(第 4 张「关键判断」),不同排版语言</small>
+  </h2>
+
+  <div class="grid grid-3">
+
+    <!-- G 标准蓝带白底 -->
+    <div class="option">
+      <div class="meta" style="width: 396px;">
+        <span class="lbl">G · BODY</span>
+        <h3>标准蓝带 + 白底</h3>
+        <div class="tags">
+          <span class="tag">已采用</span>
+          <span class="tag">页眉蓝带</span>
+        </div>
+        <p class="desc" style="font-size: 12px;">已用在示范图文里。秩序感强、信息层级清楚。适合多张连续阅读。</p>
+      </div>
+      <div class="slide-wrap s-narrow"><div class="slide body-g">
+        <div class="top">
+          <div class="num">04 / 09</div>
+          <div class="chapter">· 关键判断 ·</div>
+        </div>
+        <div class="body">
+          <div class="lead">让 AI 改之前,先告诉它「你是谁」。</div>
+          <h1>身份<span class="hi">越具体</span>,<br>输出越像你。</h1>
+          <div class="three">
+            <div class="pt"><div class="num">①</div><div class="text">不要让<b>默认 AI</b> 写</div></div>
+            <div class="pt"><div class="num">②</div><div class="text">让一个<b>有具体身份</b>的人写</div></div>
+            <div class="pt"><div class="num">③</div><div class="text">身份里要装入<b>口吻、读者、目标</b></div></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- H 全白极简 -->
+    <div class="option">
+      <div class="meta" style="width: 396px;">
+        <span class="lbl">H · BODY</span>
+        <h3>全白极简 · 杂志风</h3>
+        <div class="tags">
+          <span class="tag">无蓝带</span>
+          <span class="tag">大数字</span>
+          <span class="tag">黄高亮</span>
+        </div>
+        <p class="desc" style="font-size: 12px;">视觉最干净。适合金句、判断、单点强调。每张都"呼吸感"足。</p>
+      </div>
+      <div class="slide-wrap s-narrow"><div class="slide body-h">
+        <div class="head">
+          <span>04 / 09</span>
+          <span>关键判断</span>
+        </div>
+        <div class="lead">让 AI 改之前,先告诉它「你是谁」。</div>
+        <h1>身份<span class="em">越具体</span>,<br>输出越像你。</h1>
+        <div class="three">
+          <div class="pt">
+            <div class="head-line">
+              <span class="num">01</span>
+              <span class="label">PRINCIPLE</span>
+            </div>
+            <div class="text">不要让<b>默认 AI</b> 写。</div>
+          </div>
+          <div class="pt">
+            <div class="head-line">
+              <span class="num">02</span>
+              <span class="label">PRINCIPLE</span>
+            </div>
+            <div class="text">让一个<b>有具体身份</b>的人写。</div>
+          </div>
+          <div class="pt">
+            <div class="head-line">
+              <span class="num">03</span>
+              <span class="label">PRINCIPLE</span>
+            </div>
+            <div class="text">身份里装入<b>口吻、读者、目标</b>。</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- I 全墨蓝深色 -->
+    <div class="option">
+      <div class="meta" style="width: 396px;">
+        <span class="lbl">I · BODY</span>
+        <h3>全墨蓝 · 夜读深色</h3>
+        <div class="tags">
+          <span class="tag">墨蓝底</span>
+          <span class="tag">米金强调</span>
+          <span class="tag">夜读感</span>
+        </div>
+        <p class="desc" style="font-size: 12px;">气质最重、最沉。适合灵魂层、思考型选题。但连续 9 张全深色会压抑,慎用全套。</p>
+      </div>
+      <div class="slide-wrap s-narrow"><div class="slide body-i">
+        <div class="head">
+          <span>04 / 09</span>
+          <span>关键判断</span>
+        </div>
+        <div class="lead">让 AI 改之前,先告诉它「你是谁」。</div>
+        <h1>身份<span class="em">越具体</span>,<br>输出越像你。</h1>
+        <div class="three">
+          <div class="pt">
+            <div class="head-line">
+              <span class="num">01</span>
+              <span class="label">原 则</span>
+            </div>
+            <div class="text">不要让<b>默认 AI</b> 写。</div>
+          </div>
+          <div class="pt">
+            <div class="head-line">
+              <span class="num">02</span>
+              <span class="label">原 则</span>
+            </div>
+            <div class="text">让<b>有具体身份</b>的人写。</div>
+          </div>
+          <div class="pt">
+            <div class="head-line">
+              <span class="num">03</span>
+              <span class="label">原 则</span>
+            </div>
+            <div class="text">身份装入<b>口吻、读者、目标</b>。</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================== -->
+<!--                       怎么选 · 总结表格                          -->
+<!-- ============================================================== -->
+<section class="summary">
+  <h2 class="section-title">怎么选?</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>组合</th>
+        <th>气质</th>
+        <th>适用选题</th>
+        <th>风险</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tag">A 字体暴力 + G 标准蓝带</td>
+        <td>高级、安静、有力</td>
+        <td>提示词卡片、工具实战、SOP — 第一层为主</td>
+        <td>看多了视觉容易"统一到看不出区别"</td>
+      </tr>
+      <tr>
+        <td class="tag">B 反差对比 + G 标准蓝带</td>
+        <td>戏剧、对比、有冲突</td>
+        <td>"AI 给我的第一版差口气""改前 vs 改后"</td>
+        <td>每篇都用反差,情绪用得太满</td>
+      </tr>
+      <tr>
+        <td class="tag">C 杂志衬线 + I 墨蓝深色</td>
+        <td>文学、克制、深度</td>
+        <td>灵魂层、培训反思、思想金句 — 第三层</td>
+        <td>流量低,但精准粉丝筛选效果最好</td>
+      </tr>
+      <tr>
+        <td class="tag">D 资源清单 + H 全白极简</td>
+        <td>信息感、清单感、高保存率</td>
+        <td>"9 个"、"5 步"、"3 个清单"型选题 — 第一层</td>
+        <td>过度清单化会显得"工具人"</td>
+      </tr>
+      <tr>
+        <td class="tag">E 黑金高级 + I 墨蓝深色</td>
+        <td>商务、严肃、奢华</td>
+        <td>总监视角、行业判断、AI 趋势 — 第二层</td>
+        <td>容易"装"。每月最多 1 篇</td>
+      </tr>
+      <tr>
+        <td class="tag">F 撞色活泼 + H 全白极简</td>
+        <td>活泼、亲和、像朋友圈</td>
+        <td>踩坑分享、工具实战、轻松向</td>
+        <td>跟饶秋"安静的深度"气质冲突,慎用</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="color: #B8B8B8; font-size: 14px; line-height: 1.8; margin-top: 50px; padding-top: 30px; border-top: 1px solid #444;">
+    <strong style="color: #fff; letter-spacing: 2px;">建议主推一款 + 备用一款。</strong><br><br>
+    我的判断:<br>
+    <strong style="color: var(--orange);">主推 A(字体暴力)</strong> — 最像饶秋公众号 v10-D 的视觉延续,品牌一致性最强,适合每周 2 条里的 1.5 条<br>
+    <strong style="color: var(--orange);">备用 D(资源清单)</strong> — 提示词卡片 / SOP 类选题专用,收藏率高,适合每月 2-3 篇<br>
+    <strong style="color: var(--orange);">特别选用 C(杂志衬线)</strong> — 第三层"你这个人"灵魂选题专用,每月 1 篇<br><br>
+    B / E / F 不建议常规使用,只在选题情绪非常匹配时单次使用。
+  </div>
+</section>
+
+</body>
+</html>

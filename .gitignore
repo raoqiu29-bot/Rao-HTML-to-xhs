@@ -1,0 +1,21 @@
+# Dependencies(用户自己 npm install)
+node_modules/
+
+# macOS
+.DS_Store
+
+# 编辑器临时
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node 日志
+npm-debug.log*
+yarn-debug.log*
+
+# 测试/临时输出目录
+导出/
+导出-v2/
+output/
+tmp/

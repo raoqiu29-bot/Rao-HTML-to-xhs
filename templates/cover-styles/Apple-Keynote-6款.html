@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>饶秋·小红书封面 · Apple Keynote 风 · 6 款锁定</title>
+<style>
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: #1A1A1A;
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  /* ========== 页头 ========== */
+  header.page-head {
+    text-align: center;
+    padding: 50px 30px 40px;
+    border-bottom: 1px solid #333;
+  }
+  header.page-head h1 {
+    font-size: 28px;
+    margin: 0 0 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+  header.page-head p {
+    color: #A8B0BC;
+    font-size: 14px;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    max-width: 700px;
+    line-height: 1.7;
+  }
+  header.page-head .info-bar {
+    display: inline-flex;
+    gap: 14px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  header.page-head .info-bar span {
+    padding: 6px 16px;
+    background: #2D2D2D;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  header.page-head .info-bar .ok { color: #FFA94D; }
+  header.page-head .info-bar .no { color: #888; text-decoration: line-through; }
+
+  /* ========== 闭环说明 ========== */
+  .concept {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 30px 30px;
+    color: #DDD;
+  }
+  .concept h2 {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 0 24px;
+    color: #fff;
+    letter-spacing: 4px;
+  }
+  .concept .pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    align-items: center;
+    background: #252525;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  .concept .pair .col {
+    text-align: center;
+  }
+  .concept .pair .col .lbl {
+    font-size: 11px;
+    color: #FFA94D;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+  .concept .pair .col .text {
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.5;
+  }
+  .concept .pair .arrow {
+    color: #FFA94D;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .concept .pair.bad { background: #2D2020; }
+  .concept .pair.bad .lbl { color: #B85850; }
+  .concept .note {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+
+  /* ========== grid ========== */
+  .grid-wrap { padding: 40px 30px 80px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+    gap: 80px 50px;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .option .meta-top {
+    width: 522px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .option .meta-top .lbl {
+    display: inline-block;
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 11px;
+    color: #FFA94D;
+    letter-spacing: 4px;
+    border: 1px solid #FFA94D;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+  .option .meta-top h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .option .meta-top .kw {
+    color: #888;
+    font-size: 13px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  /* ========== slide ========== */
+  .slide-wrap {
+    width: 522px;
+    height: 696px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+    background: white;
+    position: relative;
+    border: 1px solid #000;
+  }
+  .slide {
+    width: 1242px;
+    height: 1656px;
+    transform: scale(0.42);
+    transform-origin: top left;
+    position: relative;
+  }
+
+  /* ========== 闭环卡片 ========== */
+  .loop {
+    width: 522px;
+    margin-top: 20px;
+    background: #252525;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .loop .row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid #333;
+  }
+  .loop .row:last-child { border-bottom: 0; }
+  .loop .row .label {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 4px;
+    font-weight: 600;
+  }
+  .loop .row .text {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .loop .row.cover .text { color: #fff; font-weight: 600; }
+  .loop .row.title .text { color: #FFA94D; font-weight: 600; }
+  .loop .row.logic { background: #1F1F1F; }
+  .loop .row.logic .text { color: #B0B0B0; font-size: 12px; }
+
+
+  /* ====================================================================
+   * 通用 cover 框架(Apple Keynote 白底极简)
+   * ==================================================================== */
+  .cover {
+    background: #FBFBFD;
+    color: #15263D;
+    padding: 110px 100px 100px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", serif;
+  }
+
+  .cover .topbar {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    margin-bottom: 100px;
+  }
+  .cover .topbar .vol {
+    font-family: "Times New Roman", "Garamond", serif;
+    font-style: italic;
+    font-weight: 700;
+    color: #C4A35A;
+    font-size: 56px;
+  }
+  .cover .topbar .vol .num {
+    color: #C4A35A;
+    font-size: 36px;
+    letter-spacing: 4px;
+    margin-left: 8px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .cover .topbar .line {
+    flex: 1; height: 2px; background: #C4A35A;
+  }
+  .cover .topbar .name {
+    font-family: "Source Han Serif SC", serif;
+    color: #C4A35A;
+    font-size: 32px;
+    letter-spacing: 6px;
+    font-weight: 500;
+  }
+
+
+  /* ====================================================================
+   * A · 长引文式(用户截图 1 风格延续 / 已锁定方向)
+   * ==================================================================== */
+  .cover-a .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .cover-a .head {
+    font-size: 168px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 6px;
+    color: #15263D;
+  }
+  .cover-a .head .em {
+    color: #B85850;
+  }
+  .cover-a .head .gap {
+    display: block;
+    height: 80px;
+  }
+
+
+  /* ====================================================================
+   * B · 短金句式(用户截图 2 风格延续 / 已锁定方向 · 删底部小字)
+   * ==================================================================== */
+  .cover-b .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .cover-b .head {
+    font-size: 220px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 2px;
+    color: #15263D;
+    margin-bottom: 80px;
+  }
+  .cover-b .quote-block {
+    border-left: 12px solid #C4A35A;
+    padding: 20px 0 20px 50px;
+  }
+  .cover-b .quote-block .q {
+    font-size: 72px;
+    color: #B85850;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .cover-b .quote-block .q::before { content: "「"; color: #C4A35A; }
+  .cover-b .quote-block .q::after { content: "」"; color: #C4A35A; }
+
+
+  /* ====================================================================
+   * C · 反问式
+   * ==================================================================== */
+  .cover-c .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-c .head {
+    font-size: 200px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 4px;
+    color: #15263D;
+  }
+  .cover-c .head .question {
+    color: #B85850;
+    font-size: 240px;
+  }
+  .cover-c .ann {
+    margin-top: 80px;
+    color: #C4A35A;
+    font-size: 36px;
+    letter-spacing: 8px;
+    font-style: italic;
+  }
+  .cover-c .ann .dot { color: #B85850; margin-right: 12px; }
+
+
+  /* ====================================================================
+   * D · 数字驱动
+   * ==================================================================== */
+  .cover-d .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-d .mega {
+    font-family: "Times New Roman", "Garamond", serif;
+    font-size: 540px;
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -16px;
+    color: #15263D;
+    margin-bottom: 0;
+  }
+  .cover-d .mega .pct {
+    font-size: 280px;
+    color: #C4A35A;
+    margin-left: 8px;
+  }
+  .cover-d .head {
+    font-size: 130px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 4px;
+    color: #15263D;
+    margin-top: 30px;
+  }
+  .cover-d .head .em {
+    color: #B85850;
+  }
+
+
+  /* ====================================================================
+   * E · 答案揭示式(逆向闭环 — 封面给答案,标题问问题)
+   * ==================================================================== */
+  .cover-e .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-e .pre {
+    font-size: 80px;
+    color: #6E7280;
+    margin-bottom: 50px;
+    letter-spacing: 6px;
+    font-weight: 600;
+  }
+  .cover-e .head {
+    font-size: 200px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 4px;
+    color: #15263D;
+  }
+  .cover-e .head .em {
+    color: #B85850;
+  }
+  .cover-e .head .gap { display: block; height: 30px; }
+  .cover-e .underline {
+    width: 200px; height: 6px;
+    background: #C4A35A;
+    margin-top: 60px;
+  }
+
+
+  /* ====================================================================
+   * F · 行动式(给具体动作)
+   * ==================================================================== */
+  .cover-f .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-f .open-q {
+    font-size: 200px;
+    color: #C4A35A;
+    line-height: 0.6;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  .cover-f .head {
+    font-size: 156px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 4px;
+    color: #15263D;
+    margin-bottom: 30px;
+  }
+  .cover-f .head .em {
+    color: #B85850;
+    font-weight: 800;
+  }
+  .cover-f .close-q {
+    font-size: 200px;
+    color: #C4A35A;
+    line-height: 0.6;
+    text-align: right;
+    margin-top: 30px;
+    font-weight: 700;
+  }
+
+
+  /* ============== summary ============== */
+  .summary {
+    padding: 60px 30px 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .summary h2 {
+    font-size: 22px;
+    margin: 0 0 28px;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #fff;
+  }
+  .summary table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #DDD;
+    font-size: 14px;
+  }
+  .summary th, .summary td {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid #333;
+    vertical-align: top;
+  }
+  .summary th {
+    background: #2A2A2A;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .summary td.tag {
+    color: #FFA94D;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>白底 Apple Keynote · 锁定 6 款 · 封面 + 标题闭环</h1>
+  <p>风格已锁定:<strong style="color:#fff">白底 衬线 米金 极简</strong>。<br>
+  6 款的差异在"钩子怎么下"和"封面 ↔ 标题怎么形成闭环"。</p>
+  <div class="info-bar">
+    <span class="ok">✓ 白底 Apple Keynote</span>
+    <span class="ok">✓ 大字吸引</span>
+    <span class="ok">✓ 风格统一</span>
+    <span class="ok">✓ 合规</span>
+    <span class="no">底部小字</span>
+  </div>
+</header>
+
+
+<!-- ============== 闭环逻辑说明 ============== -->
+<section class="concept">
+  <h2>核心逻辑 · 封面 ↔ 标题 不重复</h2>
+
+  <div class="pair bad">
+    <div class="col">
+      <div class="lbl">封 面</div>
+      <div class="text">"AI 给我的第一版总差口气"</div>
+    </div>
+    <div class="arrow">≈</div>
+    <div class="col">
+      <div class="lbl">标 题(错误)</div>
+      <div class="text">"AI 给我的第一版差口气,真问题不在 prompt"</div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="col">
+      <div class="lbl">封 面</div>
+      <div class="text">"AI 给我的第一版,总差口气。"</div>
+    </div>
+    <div class="arrow">+</div>
+    <div class="col">
+      <div class="lbl">标 题(正确)</div>
+      <div class="text">"让 AI 写得像人话,关键不在 prompt"</div>
+    </div>
+  </div>
+
+  <p class="note">
+    封面给"现象 / 钩子",标题给"价值 / 承诺"。两者互补,不重复。<br>
+    用户从封面看到问题,从标题看到收获,才会点进来。
+  </p>
+</section>
+
+
+<div class="grid-wrap">
+<div class="grid">
+
+  <!-- ============================ A 长引文式 ============================ -->
+  <div class="option">
+    <div class="meta-top">
+      <span class="lbl">A · LONG QUOTE</span>
+      <h3>长引文式</h3>
+      <div class="kw">封面像一段独白,有节奏 / 有停顿</div>
+    </div>
+    <div class="slide-wrap"><div class="slide cover cover-a">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="head">
+          当 AI 写出来<br>
+          一股 <span class="em">AI 味,</span>
+          <span class="gap"></span>
+          真 问 题<br>
+          不 在 提 示 词。
+        </div>
+      </div>
+    </div></div>
+    <div class="loop">
+      <div class="row cover">
+        <span class="label">封 面</span>
+        <span class="text">"当 AI 写出来一股 AI 味,真问题不在提示词。"</span>
+      </div>
+      <div class="row title">
+        <span class="label">标 题</span>
+        <span class="text">让 AI 改之前,先做这一步</span>
+      </div>
+      <div class="row logic">
+        <span class="label">闭 环</span>
+        <span class="text">封面"问题描述" → 标题"动作引导"。封面让你共鸣,标题让你想看具体怎么做</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ B 短金句式 ============================ -->
+  <div class="option">
+    <div class="meta-top">
+      <span class="lbl">B · MEGA STATEMENT</span>
+      <h3>短金句式</h3>
+      <div class="kw">封面是一句结论,有刀感 / 截屏率高</div>
+    </div>
+    <div class="slide-wrap"><div class="slide cover cover-b">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="head">
+          AI 给我的<br>
+          第一版,<br>
+          总差口气。
+        </div>
+        <div class="quote-block">
+          <div class="q">真问题不在 prompt</div>
+        </div>
+      </div>
+    </div></div>
+    <div class="loop">
+      <div class="row cover">
+        <span class="label">封 面</span>
+        <span class="text">"AI 给我的第一版,总差口气。「真问题不在 prompt」"</span>
+      </div>
+      <div class="row title">
+        <span class="label">标 题</span>
+        <span class="text">让 AI 写得像人话,关键不在 prompt</span>
+      </div>
+      <div class="row logic">
+        <span class="label">闭 环</span>
+        <span class="text">封面"现象 + 反常识引子" → 标题"价值承诺"。封面引发好奇,标题给出"看完能学会什么"</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ C 反问式 ============================ -->
+  <div class="option">
+    <div class="meta-top">
+      <span class="lbl">C · QUESTION</span>
+      <h3>反问式</h3>
+      <div class="kw">封面直接戳读者 — 你是不是也这样?</div>
+    </div>
+    <div class="slide-wrap"><div class="slide cover cover-c">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="head">
+          AI 输出<br>
+          不像你的<br>
+          口吻<span class="question">?</span>
+        </div>
+        <div class="ann"><span class="dot">●</span>不是 prompt 的问题</div>
+      </div>
+    </div></div>
+    <div class="loop">
+      <div class="row cover">
+        <span class="label">封 面</span>
+        <span class="text">"AI 输出不像你的口吻?"</span>
+      </div>
+      <div class="row title">
+        <span class="label">标 题</span>
+        <span class="text">90% 学员都卡在「同一步」</span>
+      </div>
+      <div class="row logic">
+        <span class="label">闭 环</span>
+        <span class="text">封面"问读者是不是中招" → 标题"告诉你不是一个人"。封面引共鸣,标题给安全感(很多人都这样)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ D 数字驱动 ============================ -->
+  <div class="option">
+    <div class="meta-top">
+      <span class="lbl">D · BIG NUMBER</span>
+      <h3>数字驱动</h3>
+      <div class="kw">封面只有数字 + 一个判断,信息密度极低</div>
+    </div>
+    <div class="slide-wrap"><div class="slide cover cover-d">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="mega">99<span class="pct">%</span></div>
+        <div class="head">
+          学员<span class="em">第一版</span> AI 输出,<br>
+          都卡在<span class="em">同一步</span>。
+        </div>
+      </div>
+    </div></div>
+    <div class="loop">
+      <div class="row cover">
+        <span class="label">封 面</span>
+        <span class="text">"99% 学员第一版 AI 输出,都卡在同一步。"</span>
+      </div>
+      <div class="row title">
+        <span class="label">标 题</span>
+        <span class="text">写 AI prompt 时,被忽略的一件事</span>
+      </div>
+      <div class="row logic">
+        <span class="label">闭 环</span>
+        <span class="text">封面"震撼数据" → 标题"具体内容"。封面给震撼数字,标题告诉是哪件事</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ E 答案揭示式(逆向闭环) ============================ -->
+  <div class="option">
+    <div class="meta-top">
+      <span class="lbl">E · ANSWER FIRST</span>
+      <h3>答案揭示式 · 逆向闭环</h3>
+      <div class="kw">封面直接给答案,标题问问题(反常规)</div>
+    </div>
+    <div class="slide-wrap"><div class="slide cover cover-e">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="pre">不是 prompt 的事 —</div>
+        <div class="head">
+          是<span class="em">「角色」</span><br>
+          没换。
+          <span class="gap"></span>
+        </div>
+        <div class="underline"></div>
+      </div>
+    </div></div>
+    <div class="loop">
+      <div class="row cover">
+        <span class="label">封 面</span>
+        <span class="text">"不是 prompt 的事 — 是「角色」没换。"</span>
+      </div>
+      <div class="row title">
+        <span class="label">标 题</span>
+        <span class="text">AI 输出总差一口气,问题在哪?</span>
+      </div>
+      <div class="row logic">
+        <span class="label">闭 环</span>
+        <span class="text">封面给"答案"制造悬念 → 标题问"问题"勾点击。读者必须点进来才知道这答案在答什么</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ F 行动式(双引号) ============================ -->
+  <div class="option">
+    <div class="meta-top">
+      <span class="lbl">F · ACTION QUOTE</span>
+      <h3>行动式 · 大引号</h3>
+      <div class="kw">封面是一个具体动作,标题给"为什么必要"</div>
+    </div>
+    <div class="slide-wrap"><div class="slide cover cover-f">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="open-q">"</div>
+        <div class="head">
+          让 AI 改之前,<br>
+          先告诉它<br>
+          <span class="em">你是谁。</span>
+        </div>
+        <div class="close-q">"</div>
+      </div>
+    </div></div>
+    <div class="loop">
+      <div class="row cover">
+        <span class="label">封 面</span>
+        <span class="text">"让 AI 改之前,先告诉它你是谁。"</span>
+      </div>
+      <div class="row title">
+        <span class="label">标 题</span>
+        <span class="text">90% 人写 prompt 时缺这一步</span>
+      </div>
+      <div class="row logic">
+        <span class="label">闭 环</span>
+        <span class="text">封面"具体动作" → 标题"价值证明"。封面让你知道做什么,标题让你知道为什么必须做</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ====================== summary ====================== -->
+<section class="summary">
+  <h2>6 款气质 · 帮你横向选</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>风格</th>
+        <th>封面气质</th>
+        <th>钩子方式</th>
+        <th>最适合的选题类型</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tag">A</td>
+        <td>长引文式</td>
+        <td>有节奏、有停顿、像独白</td>
+        <td>陈述 + 反常识结论</td>
+        <td>判断型 / 思想型 / 写作类</td>
+      </tr>
+      <tr>
+        <td class="tag">B</td>
+        <td>短金句式</td>
+        <td>有刀感、截屏率高</td>
+        <td>结论 + 引言块</td>
+        <td>金句型 / 灵魂层 / 流量推</td>
+      </tr>
+      <tr>
+        <td class="tag">C</td>
+        <td>反问式</td>
+        <td>戳人、情绪共鸣</td>
+        <td>问题直击</td>
+        <td>痛点共鸣 / 学员问答</td>
+      </tr>
+      <tr>
+        <td class="tag">D</td>
+        <td>数字驱动</td>
+        <td>震撼、专业、可信</td>
+        <td>大数字 + 现象</td>
+        <td>调研 / 数据 / 趋势</td>
+      </tr>
+      <tr>
+        <td class="tag">E</td>
+        <td>答案揭示式</td>
+        <td>反常规、悬念、必点</td>
+        <td>反向闭环</td>
+        <td>反直觉判断 / 总监视角</td>
+      </tr>
+      <tr>
+        <td class="tag">F</td>
+        <td>行动式</td>
+        <td>清晰、可操作</td>
+        <td>动作指令</td>
+        <td>第一层实操 / SOP</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="color: #B8B8B8; font-size: 14px; line-height: 1.9; margin-top: 50px; padding-top: 30px; border-top: 1px solid #444;">
+    <strong style="color: #fff; letter-spacing: 2px;">建议组合(1 个主推 + 2 个轮换):</strong><br><br>
+    <strong style="color: #FFA94D;">主推 A 长引文式</strong> — 最像饶秋写作语感(有"说"的节奏),适合每周 1.5 条<br>
+    <strong style="color: #FFA94D;">轮换 D 数字驱动</strong> — 选题里有真数据时用,流量更稳<br>
+    <strong style="color: #FFA94D;">轮换 E 答案揭示式</strong> — 强反差、必点击,适合"判断型"选题<br><br>
+    B / C / F 在选题情绪强匹配时单次用,不作主推。<br><br>
+    <strong style="color: #fff;">这 6 款都是同一风格系统</strong>(白底 / 衬线 / 米金 / 极简),所以混用不会破坏品牌一致性。
+  </div>
+</section>
+
+</body>
+</html>

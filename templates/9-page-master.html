@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>饶秋·小红书 F 风格 · 完整 9 张定稿</title>
+<style>
+  * { box-sizing: border-box; }
+
+  :root {
+    --bg: #FBFBFD;
+    --ink: #15263D;
+    --ink-2: #243A56;
+    --text: #1A1F2C;
+    --text-soft: #38404D;
+    --gray: #6E7280;
+    --gray-soft: #A8B0BC;
+    --gray-line: #E5E5EA;
+    --gray-bg: #F4F5F7;
+    --gold: #C4A35A;
+    --gold-soft: #E0C998;
+    --gold-bg: #FAF6EC;
+    --brick: #B85850;
+  }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: #1A1A1A;
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  /* ========== 页头 ========== */
+  header.page-head {
+    text-align: center;
+    padding: 50px 30px 30px;
+    border-bottom: 1px solid #333;
+  }
+  header.page-head h1 {
+    font-size: 26px;
+    margin: 0 0 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+  header.page-head p {
+    color: #A8B0BC;
+    font-size: 14px;
+    margin: 0;
+    letter-spacing: 2px;
+  }
+  header.page-head .info-bar {
+    display: inline-flex;
+    gap: 14px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  header.page-head .info-bar span {
+    padding: 6px 16px;
+    background: #2D2D2D;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  header.page-head .info-bar .big { color: #FF7A45; }
+  header.page-head .info-bar .small { color: #5BB1FF; }
+
+  .rhythm {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .rhythm .dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .rhythm .dot.big { background: #FF7A45; }
+  .rhythm .dot.small { background: #5BB1FF; }
+
+  /* ========== stage ========== */
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0 80px;
+  }
+  .slide-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .slide-block .slide-label {
+    color: #A8B0BC;
+    font-size: 13px;
+    letter-spacing: 6px;
+    font-weight: 300;
+  }
+  .slide-block .slide-label .big { color: #FF7A45; font-weight: 700; margin-left: 8px; }
+  .slide-block .slide-label .small { color: #5BB1FF; font-weight: 700; margin-left: 8px; }
+  .slide-wrap {
+    width: 522px;
+    height: 696px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+    flex-shrink: 0;
+    background: white;
+    position: relative;
+    border: 1px solid #000;
+  }
+  .slide {
+    width: 1242px;
+    height: 1656px;
+    transform: scale(0.42);
+    transform-origin: top left;
+    position: relative;
+  }
+
+  /* ========== 通用 slide 框架 ========== */
+  .slide-base {
+    background: var(--bg);
+    color: var(--text);
+    padding: 90px 100px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", serif;
+  }
+
+  /* ========== 顶部品牌栏(v2 简化版:左 Vol + 右 Page + 米金细线) ========== */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 60px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gold-soft);
+  }
+  .topbar .vol {
+    font-family: "Times New Roman", "Garamond", serif;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 34px;
+  }
+  .topbar .vol .num {
+    font-size: 22px;
+    margin-left: 4px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 4px;
+  }
+  .topbar .page {
+    font-family: "Times New Roman", serif;
+    color: var(--gold);
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    opacity: 0.75;
+  }
+
+  /* ========== 右下水印(v2 新增 · 所有 9 张图自动添加) ========== */
+  :root {
+    --watermark: "@饶秋·1023  ·  第 19 期";
+  }
+  .slide::after {
+    content: var(--watermark);
+    position: absolute;
+    right: 90px;
+    bottom: 50px;
+    font-family: "Source Han Serif SC", "Songti SC", serif;
+    font-size: 24px;
+    color: var(--gold);
+    opacity: 0.55;
+    letter-spacing: 4px;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* ========== 中间页通用元素 ========== */
+  .section-tag {
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 8px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .section-tag::before { content: "── "; }
+  .section-tag::after { content: " ──"; }
+
+  .h-main {
+    font-size: 88px;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--ink);
+    margin: 0 0 30px;
+  }
+  .h-main .em { color: var(--brick); }
+
+  .body-text {
+    font-size: 38px;
+    line-height: 1.8;
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .body-text b { color: var(--ink); font-weight: 700; }
+  .body-text .em { color: var(--brick); font-weight: 700; }
+  .body-text + .body-text { margin-top: 24px; }
+
+  .footer-tip {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-line);
+    color: var(--gray);
+    font-size: 26px;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-style: italic;
+  }
+  .footer-tip .arr {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 30px;
+    font-style: normal;
+  }
+
+
+  /* ====================================================================
+   * 第 1 张 · 封面 F(大字!大引号!) ★★★
+   * ==================================================================== */
+  .s-cover {
+    background: var(--bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 110px 100px 100px;
+    font-family: "Source Han Serif SC", "Songti SC", serif;
+  }
+  .s-cover .topbar { margin-bottom: 100px; padding-bottom: 18px; border-bottom: 2px solid var(--gold); }
+  .s-cover .topbar .vol { font-size: 56px; }
+  .s-cover .topbar .vol .num { font-size: 36px; }
+  /* 旧版 line/name 元素仍可能在 HTML 中,统一隐藏(v2 用右下水印代替) */
+  .topbar .line, .topbar .name { display: none; }
+  .s-cover .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .s-cover .open-q {
+    font-size: 220px;
+    color: var(--gold);
+    line-height: 0.5;
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+  .s-cover .big {
+    font-size: 156px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 6px;
+    margin-bottom: 50px;
+  }
+  .s-cover .big .em { color: var(--brick); font-weight: 800; }
+  .s-cover .close-q {
+    font-size: 220px;
+    color: var(--gold);
+    line-height: 0.5;
+    font-weight: 700;
+    text-align: right;
+    margin-top: 30px;
+  }
+
+
+  /* ====================================================================
+   * 第 2 张 · 结论(小字 / 信息密集)
+   * ==================================================================== */
+  .s-conclusion .quote-mini {
+    background: var(--gold-bg);
+    border-left: 8px solid var(--gold);
+    padding: 32px 40px;
+    margin: 30px 0;
+  }
+  .s-conclusion .quote-mini .q {
+    font-size: 50px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .s-conclusion .quote-mini .q .em { color: var(--brick); }
+
+
+  /* ====================================================================
+   * 第 3 张 · 误区(小字)
+   * ==================================================================== */
+  .s-mistake .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 24px 0;
+  }
+  .s-mistake .examples .ex {
+    border-left: 6px solid var(--brick);
+    padding: 14px 0 14px 32px;
+  }
+  .s-mistake .examples .ex .quote {
+    font-size: 38px;
+    color: var(--text);
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .s-mistake .examples .ex .quote .num {
+    color: var(--brick);
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    margin-right: 12px;
+  }
+  .s-mistake .examples .ex .ann {
+    font-size: 28px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .s-mistake .examples .ex .ann::before {
+    content: "→ "; color: var(--gold); font-style: normal;
+  }
+
+
+  /* ====================================================================
+   * 第 4 张 · 关键判断(小字)
+   * ==================================================================== */
+  .s-judge .principles {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin: 24px 0;
+  }
+  .s-judge .principles .pr {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    border-bottom: 1px solid var(--gray-line);
+    padding-bottom: 24px;
+  }
+  .s-judge .principles .pr:last-child { border-bottom: 0; }
+  .s-judge .principles .pr .num {
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 56px;
+    line-height: 1;
+  }
+  .s-judge .principles .pr .body .ttl {
+    font-size: 42px;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .s-judge .principles .pr .body .ttl b { color: var(--brick); }
+  .s-judge .principles .pr .body .desc {
+    font-size: 30px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+
+  /* ====================================================================
+   * 第 5 张 · 完整提示词(小字 + 等宽)
+   * ==================================================================== */
+  .s-prompt .prompt-box {
+    background: var(--gold-bg);
+    border-left: 8px solid var(--gold);
+    padding: 36px 40px;
+    font-family: "SF Mono", "JetBrains Mono", "Menlo", monospace;
+    font-size: 26px;
+    line-height: 1.8;
+    color: var(--text);
+    white-space: pre-wrap;
+    margin: 24px 0;
+  }
+  .s-prompt .prompt-box .key { color: var(--ink); font-weight: 700; }
+  .s-prompt .prompt-box .em { color: var(--brick); font-weight: 700; }
+  .s-prompt .vars {
+    background: var(--gray-bg);
+    padding: 24px 30px;
+    margin-top: 16px;
+  }
+  .s-prompt .vars .h {
+    font-size: 30px;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+  .s-prompt .vars .item {
+    font-size: 28px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .s-prompt .vars .item b { color: var(--brick); font-weight: 700; }
+
+
+  /* ====================================================================
+   * 第 6 张 · 对比(小字 + 注解)
+   * ==================================================================== */
+  .s-compare .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .s-compare .compare .col {
+    padding: 24px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  .s-compare .compare .col .h {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 4px;
+  }
+  .s-compare .compare .col .quote {
+    font-size: 26px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .s-compare .compare .col .why {
+    font-size: 22px;
+    line-height: 1.6;
+    font-style: italic;
+    border-top: 1px dashed currentColor;
+    padding-top: 12px;
+    opacity: 0.85;
+  }
+  .s-compare .compare .col .why::before {
+    content: "为什么? ";
+    font-style: normal;
+    font-weight: 700;
+  }
+  .s-compare .compare .bad {
+    background: var(--gray-bg);
+    color: var(--gray);
+  }
+  .s-compare .compare .bad .h::before { content: "✗ "; }
+  .s-compare .compare .good {
+    background: var(--gold-bg);
+    color: var(--text);
+    border-left: 4px solid var(--gold);
+  }
+  .s-compare .compare .good .h { color: var(--ink); }
+  .s-compare .compare .good .h::before { content: "✓ "; color: var(--gold); }
+  .s-compare .compare .good .why { color: var(--gray); }
+  .s-compare .conclusion {
+    background: var(--ink);
+    color: #fff;
+    padding: 20px 28px;
+    margin-top: 16px;
+    font-size: 32px;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .s-compare .conclusion .em { color: var(--gold-soft); }
+
+
+  /* ====================================================================
+   * 第 7 张 · 金句(大字!) ★★★
+   * ==================================================================== */
+  .s-quote {
+    background: var(--bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 90px 100px 80px;
+    font-family: "Source Han Serif SC", "Songti SC", serif;
+  }
+  .s-quote .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 30px;
+  }
+  .s-quote .open-q {
+    font-size: 280px;
+    color: var(--gold);
+    line-height: 0.5;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: left;
+  }
+  .s-quote .big {
+    font-size: 200px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+  }
+  .s-quote .big .em { color: var(--brick); }
+  .s-quote .close-q {
+    font-size: 280px;
+    color: var(--gold);
+    line-height: 0.5;
+    font-weight: 700;
+    margin-top: 50px;
+    text-align: right;
+  }
+  .s-quote .sub {
+    font-size: 44px;
+    color: var(--gray);
+    line-height: 1.7;
+    letter-spacing: 4px;
+    margin-top: 30px;
+    font-weight: 500;
+  }
+  .s-quote .deco-line {
+    width: 120px; height: 2px;
+    background: var(--gold);
+    margin: 40px auto 20px;
+  }
+  .s-quote .author {
+    color: var(--gray);
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+
+
+  /* ====================================================================
+   * 第 8 张 · 适用场景(小字)
+   * ==================================================================== */
+  .s-scene .scenes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 20px 0;
+  }
+  .s-scene .scenes .item {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 24px;
+    padding: 22px 28px;
+    border-radius: 4px;
+  }
+  .s-scene .scenes .item .ck {
+    font-family: "Times New Roman", serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .s-scene .scenes .item .body .ttl {
+    font-size: 36px;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .s-scene .scenes .item .body .why {
+    font-size: 28px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .s-scene .scenes .item.yes {
+    background: var(--gold-bg);
+    border-left: 4px solid var(--gold);
+  }
+  .s-scene .scenes .item.yes .ck { color: var(--gold); }
+  .s-scene .scenes .item.no {
+    background: var(--gray-bg);
+    border-left: 4px solid var(--gray-soft);
+  }
+  .s-scene .scenes .item.no .ck { color: var(--gray-soft); }
+  .s-scene .scenes .item.no .body .ttl { color: var(--gray); }
+
+
+  /* ====================================================================
+   * 第 9 张 · CTA(大字!) ★★★
+   * ==================================================================== */
+  .s-cta {
+    background: var(--bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 90px 100px 80px;
+    font-family: "Source Han Serif SC", "Songti SC", serif;
+  }
+  .s-cta .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .s-cta .deco {
+    text-align: center;
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 16px;
+    margin-bottom: 40px;
+  }
+  .s-cta .big {
+    font-size: 160px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 4px;
+  }
+  .s-cta .big .em { color: var(--brick); }
+  .s-cta .reason {
+    font-size: 38px;
+    color: var(--gray);
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 4px;
+    font-weight: 500;
+  }
+  .s-cta .divider {
+    width: 200px; height: 2px;
+    background: var(--gold);
+    margin: 0 auto 50px;
+  }
+  .s-cta .next {
+    font-size: 36px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+  .s-cta .next b { color: var(--brick); font-weight: 700; }
+  .s-cta .hook {
+    font-size: 36px;
+    color: var(--text);
+    line-height: 1.7;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+  .s-cta .hook b { color: var(--gold); font-weight: 700; }
+
+  /* v2 新增 · CTA 三个胶囊按钮(关注/收藏/评论) */
+  .s-cta .pills {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .s-cta .pill {
+    font-family: "Source Han Serif SC", "Songti SC", serif;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 24px 56px;
+    border-radius: 100px;
+    letter-spacing: 10px;
+    line-height: 1;
+  }
+  .s-cta .pill.primary {
+    background: var(--gold);
+    color: var(--ink);
+    border: 2px solid var(--gold);
+  }
+  .s-cta .pill.outline {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+  }
+
+
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>F 风格 · v2 主模板</h1>
+  <p>大-小-小-小-小-小-大-小-大 节奏 · 简化顶栏 + 右下水印 + CTA pill + data-role 叙事弧线</p>
+  <div class="info-bar">
+    <span class="big">★ 大字页:1 / 7 / 9 (封面 / 金句 / CTA)</span>
+    <span class="small">○ 小字页:2-6 / 8 (信息密集)</span>
+  </div>
+  <div class="rhythm">
+    <span class="dot big" title="封面">1</span>
+    <span class="dot small">2</span>
+    <span class="dot small">3</span>
+    <span class="dot small">4</span>
+    <span class="dot small">5</span>
+    <span class="dot small">6</span>
+    <span class="dot big" title="金句">7</span>
+    <span class="dot small">8</span>
+    <span class="dot big" title="CTA">9</span>
+  </div>
+</header>
+
+<div class="stage">
+
+
+  <!-- ============================ 第 1 张 · 封面(大字 ★) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">01 / 09 · 封面 <span class="big">★ 大字</span></span>
+    <div class="slide-wrap"><div class="slide s-cover" data-role="cover">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+      </div>
+      <div class="body">
+        <div class="open-q">"</div>
+        <div class="big">
+          让 AI 改之前,<br>
+          先告诉它<br>
+          <span class="em">你是谁。</span>
+        </div>
+        <div class="close-q">"</div>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 2 张 · 结论(小字 ○) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">02 / 09 · 结论 <span class="small">○ 小字</span></span>
+    <div class="slide-wrap"><div class="slide slide-base s-conclusion" data-role="conclusion">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">02 · 09</span>
+      </div>
+      <div class="section-tag">先 说 结 论</div>
+      <h1 class="h-main">
+        真正卡住你的,<br>
+        是<span class="em">「角色」没换</span>。
+      </h1>
+      <div class="quote-mini">
+        <div class="q">不是 prompt 写得差。<br>是 AI 默认<span class="em">「无名无姓」</span>,你没告诉它它是谁。</div>
+      </div>
+      <p class="body-text">
+        你让一个<b>无名无姓的助理</b>写"月度经营汇报",
+        它写出来必然是一股「赋能 / 抓手 / 闭环」的<span class="em">AI 味</span>。
+      </p>
+      <p class="body-text">
+        因为它不知道写给谁、用什么口吻、要达成什么。
+        所以输出永远停在<b>"中庸的、平均的、像 AI 的"声音</b>。
+      </p>
+      <p class="body-text">
+        让它先变成一个<b>具体的人</b>,再让它写。
+        prompt 不用复杂,身份必须明确。
+      </p>
+      <div class="footer-tip">
+        <span>滑下一张:大部分人在做的事</span>
+        <span class="arr">▶</span>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 3 张 · 误区(小字 ○) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">03 / 09 · 误区 <span class="small">○ 小字</span></span>
+    <div class="slide-wrap"><div class="slide slide-base s-mistake" data-role="mistake">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">03 · 09</span>
+      </div>
+      <div class="section-tag">大 部 分 人 在 做 的 事</div>
+      <h2 class="h-main">
+        把同一句话,<br>
+        重发了<span class="em">三遍</span>。
+      </h2>
+      <div class="examples">
+        <div class="ex">
+          <div class="quote"><span class="num">i.</span>「帮我写月度经营汇报」</div>
+          <div class="ann">AI 给一个标准模板,通用、空洞、没有人味。</div>
+        </div>
+        <div class="ex">
+          <div class="quote"><span class="num">ii.</span>「帮我写得专业一点」</div>
+          <div class="ann">AI 加几个商业黑话,但骨架完全没变。</div>
+        </div>
+        <div class="ex">
+          <div class="quote"><span class="num">iii.</span>「帮我再润色一下」</div>
+          <div class="ann">AI 改几个形容词,核心还是 AI 自己的声音。</div>
+        </div>
+      </div>
+      <p class="body-text">
+        每一遍 AI 都不知道你<b>到底要谁的口吻、给谁看、想达成什么</b>。
+        换 100 个同义词,它依然停在"中庸答案"上。
+      </p>
+      <div class="footer-tip">
+        <span>滑下一张:正确做法</span>
+        <span class="arr">▶</span>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 4 张 · 关键判断(小字 ○) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">04 / 09 · 关键判断 <span class="small">○ 小字</span></span>
+    <div class="slide-wrap"><div class="slide slide-base s-judge" data-role="insight">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">04 · 09</span>
+      </div>
+      <div class="section-tag">关 键 判 断</div>
+      <h2 class="h-main">
+        身份越<span class="em">具体</span>,<br>
+        输出越像你。
+      </h2>
+      <div class="principles">
+        <div class="pr">
+          <div class="num">i</div>
+          <div class="body">
+            <div class="ttl">不要让 <b>"默认 AI"</b> 写</div>
+            <div class="desc">默认 AI = 万能助理,输出必然是平均值。再多 prompt 都救不了。</div>
+          </div>
+        </div>
+        <div class="pr">
+          <div class="num">ii</div>
+          <div class="body">
+            <div class="ttl">让一个 <b>"有具体身份"</b> 的人写</div>
+            <div class="desc">告诉它在哪个行业、什么岗位、做什么事。越具体,越像你。</div>
+          </div>
+        </div>
+        <div class="pr">
+          <div class="num">iii</div>
+          <div class="body">
+            <div class="ttl">装入 <b>口吻、读者、目标</b></div>
+            <div class="desc">口吻决定语气,读者决定深度,目标决定方向。三件事缺一不可。</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-tip">
+        <span>下一张:完整可复制 prompt</span>
+        <span class="arr">▶</span>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 5 张 · 完整提示词(小字 ○) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">05 / 09 · 完整提示词 <span class="small">○ 小字</span></span>
+    <div class="slide-wrap"><div class="slide slide-base s-prompt" data-role="prompt">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">05 · 09</span>
+      </div>
+      <div class="section-tag">完 整 提 示 词 · 长 按 截 图 保 存</div>
+      <h2 class="h-main" style="font-size: 64px;">
+        把这段贴进去,<br>再让 AI 写。
+      </h2>
+      <div class="prompt-box"><span class="key">你是</span>一个在上市公司担任运营总监的人。
+
+<span class="key">你的写作特点</span>:
+- 用大白话,不用「<span class="em">赋能 / 抓手 / 闭环</span>」
+- 每个观点后面接一个具体数字或具体场景
+- 主动承认不知道的部分,不装
+
+<span class="key">这次你要写</span>:月度经营汇报。
+<span class="key">读者是</span>:总经理 + 部门负责人。
+<span class="key">目标是</span>:不是炫成绩,是把问题摆出来推动决策。
+
+<span class="key">接下来</span>我给你这个月的数据和事件,
+请按这个身份写,先列结构,我确认后你再展开。</div>
+      <div class="vars">
+        <div class="h">改这 3 个变量,套到任何场景:</div>
+        <div class="item">① <b>"你是"</b> → 换成你的身份(运营 / HR / 销售 / 设计…)</div>
+        <div class="item">② <b>"读者是"</b> → 换成给谁看(领导 / 客户 / 同事…)</div>
+        <div class="item">③ <b>"目标是"</b> → 换成想达成什么(决策 / 报告 / 复盘…)</div>
+      </div>
+      <div class="footer-tip">
+        <span>下一张:改前 vs 改后</span>
+        <span class="arr">▶</span>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 6 张 · 对比(小字 ○) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">06 / 09 · 改前 vs 改后 <span class="small">○ 小字</span></span>
+    <div class="slide-wrap"><div class="slide slide-base s-compare" data-role="compare">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">06 · 09</span>
+      </div>
+      <div class="section-tag">同 样 的 素 材</div>
+      <h2 class="h-main">
+        输出差距,<br>
+        <span class="em">一眼就看出</span>。
+      </h2>
+      <div class="compare">
+        <div class="col bad">
+          <div class="h">改前 · 默认 AI</div>
+          <div class="quote">
+            "本季度业务取得了显著的增长态势,
+            团队协同效应明显,在多维度
+            实现了战略目标的高质量落地,
+            为下一阶段奠定了坚实基础。"
+          </div>
+          <div class="why">AI 搜罗的是"标准商务文档",输出永远在"安全的中庸"上停留。没人会读完。</div>
+        </div>
+        <div class="col good">
+          <div class="h">改后 · 带身份</div>
+          <div class="quote">
+            "4 月新单跌了一半多。
+            三个原因,一个是渠道没盯紧,
+            一个是定价试错,
+            一个是我自己交付节奏没把住。"
+          </div>
+          <div class="why">身份是具体的运营总监,AI 模仿的是"会承认问题、会担责任的人"——这才像真的。</div>
+        </div>
+      </div>
+      <div class="conclusion">
+        差别不在 AI ── 在你给它的 <span class="em">"角色"</span>。
+      </div>
+      <div class="footer-tip">
+        <span>下一张:一句话核心</span>
+        <span class="arr">▶</span>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 7 张 · 金句(大字 ★) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">07 / 09 · 金句 <span class="big">★ 大字</span></span>
+    <div class="slide-wrap"><div class="slide s-quote" data-role="peak">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">07 · 09</span>
+      </div>
+      <div class="center">
+        <div class="open-q">"</div>
+        <div class="big">
+          判断力<br>
+          <span class="em">&gt;</span><br>
+          提示词。
+        </div>
+        <div class="close-q">"</div>
+        <div class="sub">
+          所有人都会用 AI 的时候,<br>
+          区分人和人的,<br>
+          只剩判断力。
+        </div>
+        <div class="deco-line"></div>
+        <div class="author">饶 秋 · 1 0 2 3</div>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 8 张 · 适用场景(小字 ○) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">08 / 09 · 用在哪 <span class="small">○ 小字</span></span>
+    <div class="slide-wrap"><div class="slide slide-base s-scene" data-role="scenario">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">08 · 09</span>
+      </div>
+      <div class="section-tag">什 么 时 候 用 这 一 招</div>
+      <h2 class="h-main">
+        写出来要给<br>
+        <span class="em">"具体的人"</span>看的时候。
+      </h2>
+      <div class="scenes">
+        <div class="item yes">
+          <div class="ck">✓</div>
+          <div class="body">
+            <div class="ttl">写月度 / 季度经营汇报</div>
+            <div class="why">读者是高层,他们对腔调有判断,AI 默认味儿一眼就被识破。</div>
+          </div>
+        </div>
+        <div class="item yes">
+          <div class="ck">✓</div>
+          <div class="body">
+            <div class="ttl">给客户写邮件、写方案</div>
+            <div class="why">客户记的是"你这个人"的口吻,而不是 AI 通用模板。</div>
+          </div>
+        </div>
+        <div class="item yes">
+          <div class="ck">✓</div>
+          <div class="body">
+            <div class="ttl">写朋友圈、做培训稿</div>
+            <div class="why">这些是"以你为主角"的内容,身份不对就完全不像你。</div>
+          </div>
+        </div>
+        <div class="item no">
+          <div class="ck">✗</div>
+          <div class="body">
+            <div class="ttl">查资料、做翻译时不需要</div>
+            <div class="why">这些任务"无主角",AI 默认就够用,加身份反而啰嗦。</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-tip">
+        <span>最后一张 ── 一句话收尾</span>
+        <span class="arr">▶</span>
+      </div>
+    </div></div>
+  </div>
+
+
+  <!-- ============================ 第 9 张 · CTA(大字 ★) ============================ -->
+  <div class="slide-block">
+    <span class="slide-label">09 / 09 · 收尾 <span class="big">★ 大字</span></span>
+    <div class="slide-wrap"><div class="slide s-cta" data-role="cta">
+      <div class="topbar">
+        <span class="vol">Vol.<span class="num">019</span></span>
+        <span class="line"></span>
+        <span class="name">饶 秋 · 1023</span>
+        <span class="page">09 · 09</span>
+      </div>
+      <div class="center">
+        <div class="deco">· 一 句 收 尾 ·</div>
+        <div class="big">
+          判断力 <span class="em">&gt;</span><br>
+          提示词。
+        </div>
+        <div class="reason">
+          这是我讲了 80+ 场培训、<br>
+          用了 2000+ 小时 AI 之后,<br>
+          唯一确定的事。
+        </div>
+        <div class="divider"></div>
+        <div class="hook" style="text-align: center;">
+          你最近用 AI 写稿改了几遍?<br>
+          哪一步最卡?
+        </div>
+        <div class="pills">
+          <span class="pill primary">关 注</span>
+          <span class="pill outline">收 藏</span>
+          <span class="pill outline">评 论</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+
+</body>
+</html>
