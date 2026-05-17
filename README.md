@@ -1,4 +1,4 @@
-# Rao-HTML-to-Xiaohongshu
+# Rao-HTML-to-xhs
 
 > Claude skill for one-shot Markdown → 小红书发布包. 饶秋老师锁定的 Apple Keynote 极简风 + 米金 #C4A35A 装饰 + 衬线大字 + 大-小-大 节奏 + 自动渲染 1242×1656 PNG + 自动生成发布文案(标题/正文/标签/自检) + 合规红线(无站外引流)。一个 skill 输出完整可发布包,不止图片。
 
@@ -78,8 +78,8 @@
 
 ```bash
 cd ~/.claude/skills/
-git clone https://github.com/raoqiu29-bot/Rao-HTML-to-Xiaohongshu raoqiu-xhs-builder
-cd raoqiu-xhs-builder
+git clone https://github.com/raoqiu29-bot/Rao-HTML-to-xhs raoqiu-html-to-xhs
+cd raoqiu-html-to-xhs
 npm install              # 安装 puppeteer-core(用本机 Chrome,不下载 Chromium)
 ```
 
@@ -94,7 +94,7 @@ npm install              # 安装 puppeteer-core(用本机 Chrome,不下载 Chro
 ## 仓库结构
 
 ```
-Rao-HTML-to-Xiaohongshu/
+Rao-HTML-to-xhs/
 ├── SKILL.md                      ← skill 入口(YAML frontmatter + 完整说明)
 ├── render.js                     ← puppeteer-core 渲染脚本(HTML → 9 张 PNG)
 ├── package.json                  ← 仅依赖 puppeteer-core

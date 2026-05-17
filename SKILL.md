@@ -1,9 +1,9 @@
 ---
-name: raoqiu-xhs-builder
+name: raoqiu-html-to-xhs
 description: 按饶秋老师锁定的 Apple Keynote 白底极简风,把文章 / 提示词 / 培训内容 / 思想笔记转成**完整可发的小红书发布包**——9 张图(封面 + 7 张正文 + CTA,自动渲染成 1242×1656 PNG) + 小红书标题 + 正文文案 + 合规标签 + 发布前自检清单,直接复制粘贴到小红书 App 就能发,不需要再自己写文案。当用户提到"小红书图文""小红书封面""做小红书""把文章改成图集""饶秋小红书""小红书排版""出小红书图""小红书 9 张图""小红书 carousel""写小红书标题""写小红书文案""小红书标签""小红书发布包"等场景时,必须使用此技能。即使用户只说"做个小红书",只要内容是 AI / 职场 / 培训 / 思想 / 提示词类,都应触发此技能。也用于审查已有图文 / 标题 / 正文 / 标签是否符合视觉规范、合规红线和闭环规则。
 ---
 
-# raoqiu-xhs-builder · 饶秋小红书图文构建器
+# raoqiu-html-to-xhs · 饶秋小红书图文构建器
 
 把饶秋老师的内容(公众号文章 / 培训反思 / 思想笔记 / 提示词 SOP)转成**可一键发布的小红书完整包**:
 - ✅ 9 张图(自动渲染 1242×1656 PNG)
@@ -105,7 +105,7 @@ description: 按饶秋老师锁定的 Apple Keynote 白底极简风,把文章 / 
 
 ```bash
 # 复制内容模板(只管内容,不碰 HTML)
-cp "~/Desktop/Skills/01-技能-Skills/我的技能-MySkills/raoqiu-xhs-builder/templates/example.md" \
+cp "~/Desktop/Skills/01-技能-Skills/我的技能-MySkills/raoqiu-html-to-xhs/templates/example.md" \
    "~/Desktop/饶秋-自媒体/11-小红书图文规划/<选题>/example.md"
 ```
 
@@ -134,7 +134,7 @@ cp "...templates/9-page-master.html" "...<选题>/F风格-完整9张.html"
 ### Step 5 · 渲染 PNG
 
 ```bash
-cd ~/Desktop/Skills/01-技能-Skills/我的技能-MySkills/raoqiu-xhs-builder
+cd ~/Desktop/Skills/01-技能-Skills/我的技能-MySkills/raoqiu-html-to-xhs
 node render.js <html-path> <output-dir>
 ```
 
@@ -206,7 +206,7 @@ node render.js
 ## 文件清单
 
 ```
-raoqiu-xhs-builder/
+raoqiu-html-to-xhs/
 ├── SKILL.md                      ← 本文件
 ├── render.js                     ← puppeteer 渲染脚本
 ├── package.json + node_modules   ← npm 依赖(已装好)

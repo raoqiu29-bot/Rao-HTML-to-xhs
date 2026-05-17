@@ -242,7 +242,7 @@
 1. **复制本文件** → `~/Desktop/饶秋-自媒体/11-小红书图文规划/<选题>/example.md`
 2. **改 frontmatter**:期号、选题、水印
 3. **改 9 张图的内容**(只改 @ 标记后面的文字)
-4. **召唤 raoqiu-xhs-builder skill**,说"用这个 md 出 9 张图"
+4. **召唤 raoqiu-html-to-xhs skill**,说"用这个 md 出 9 张图"
 5. AI 读 md → 套到 9-page-master.html → 输出 HTML
 6. AI 跑 render.js → 输出 9 张 PNG 到 `导出/`
 7. AI 写 `发布包.md`(标题/正文/标签/自检)
